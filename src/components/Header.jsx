@@ -38,6 +38,7 @@ const menuItems = [
 const Header = ({ onFilterClick, isMenuOpen, onOpenMenuClick }) => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [mobileHoveredItem, setMobileHoveredItem] = useState(null);
 
   return (
     <header className="bg-white shadow-sm">
@@ -64,7 +65,7 @@ const Header = ({ onFilterClick, isMenuOpen, onOpenMenuClick }) => {
                     {item.submenu && <FiChevronDown className="ml-1" />}
                   </a>
 
-                  {item.submenu && hoveredItem == item.name && (
+                  {item.submenu && hoveredItem === item.name && (
                     <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
                       {item.submenu.map((subItem) => (
                         <a
@@ -137,28 +138,35 @@ const Header = ({ onFilterClick, isMenuOpen, onOpenMenuClick }) => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200 border-b">
-            <nav className="flex flex-col space-y-4 ">
+            <nav className="flex flex-col space-y-4">
               {menuItems.map((item) => (
-                <div key={item.name} className="relative mb-3"   
-                 onMouseEnter={() => setHoveredItem(item.name)}
-                onMouseLeave={() => setHoveredItem(null)}
+                <div 
+                  key={item.name} 
+                  className="relative mb-3"
+                  onMouseEnter={() => setMobileHoveredItem(item.name)}
+                  onMouseLeave={() => setMobileHoveredItem(null)}
                 >
-  
-                   <a
+                  <a
                     href={item.link}
-                    className="flex items-center text-gray-700 hover:text-indigo-600 transition-colors"
+                    className="flex items-center justify-between text-gray-700 hover:text-indigo-600 transition-colors"
                   >
-                    {item.name}
-                    {item.submenu && <FiChevronDown className="ml-1" />}
+                    <span>{item.name}</span>
+                    {item.submenu && (
+                      <FiChevronDown 
+                        className={`ml-1 transition-transform duration-200 ${
+                          mobileHoveredItem === item.name ? 'rotate-180' : ''
+                        }`}
+                      />
+                    )}
                   </a>
 
-                  {item.submenu && hoveredItem == item.name && (
-                    <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
+                  {item.submenu && mobileHoveredItem === item.name && (
+                    <div className="mt-2 bg-gray-50 rounded-lg py-2">
                       {item.submenu.map((subItem) => (
                         <a
                           key={subItem.name}
                           href={subItem.link}
-                          className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600"
+                          className="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600"
                         >
                           {subItem.name}
                         </a>
@@ -168,7 +176,8 @@ const Header = ({ onFilterClick, isMenuOpen, onOpenMenuClick }) => {
                 </div>
               ))}
             </nav>
-            <div className=" md:flex items-center space-x-2 mt-3 text-center">
+
+            <div className="flex flex-wrap justify-center items-center space-x-2 mt-3">
               {countries.map((country) => (
                 <button
                   key={country.code}

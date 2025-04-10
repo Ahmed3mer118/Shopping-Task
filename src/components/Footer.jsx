@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">About Us</h3>
             <p className="text-sm">
-              ShopEase is your one-stop destination for all your shopping needs. We offer a wide range of products at competitive prices.
+              Vemoda Shopping  is your one-stop destination for all your shopping needs. We offer a wide range of products at competitive prices.
             </p>
           </div>
 
@@ -19,7 +19,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="hover:text-white">Contact Us</a></li>
               <li><a href="#" className="hover:text-white">FAQs</a></li>
-              <li><a href="#" className="hover:text-white">Shipping Info</a></li>
+              <li><a href="#" className="hover:text-white">Shopping Info</a></li>
               <li><a href="#" className="hover:text-white">Returns</a></li>
             </ul>
           </div>
@@ -29,7 +29,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="hover:text-white">My Account</a></li>
-              <li><a href="#" className="hover:text-white">Order Tracking</a></li>
+              <li><a href="#" className="hover:text-white">GitHub</a></li>
               <li><a href="#" className="hover:text-white">Wishlist</a></li>
               <li><a href="#" className="hover:text-white">Compare</a></li>
             </ul>
@@ -41,7 +41,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="hover:text-white">Electronics</a></li>
               <li><a href="#" className="hover:text-white">Clothing</a></li>
-              <li><a href="#" className="hover:text-white">Home & Kitchen</a></li>
+              <li><a href="#" className="hover:text-white">Books</a></li>
               <li><a href="#" className="hover:text-white">Beauty</a></li>
             </ul>
           </div>

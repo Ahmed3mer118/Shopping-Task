@@ -1,7 +1,7 @@
 import { FiX, FiChevronDown } from 'react-icons/fi'
 import { useState } from 'react'
 
-// فصل البيانات إلى كائن منفصل
+
 const filterData = {
   priceRanges: [
     { id: 'price1', label: '$0 - $100', value: '0-100' },
@@ -94,7 +94,7 @@ const Sidebar = ({ isOpenSidebar, onClose, onFilterChange }) => {
 
   return (
     <>
-      {/* Overlay */}
+ 
       {isOpenSidebar && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300"
@@ -151,7 +151,7 @@ const Sidebar = ({ isOpenSidebar, onClose, onFilterChange }) => {
             />
           </div>
 
-          {/* Footer */}
+  
           <div className="pt-4 border-t border-gray-200">
             <button
               onClick={() => {
